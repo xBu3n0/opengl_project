@@ -56,13 +56,7 @@ void createMontain(app::App &fapp)
 		0.0f, 1.0f, 0.0f
 	};
 
-	// for(int i = 0; i < 2 * (height-1) * (width-1); ++i)
-	// 	printf("%d %d %d\n", montanhaIndices[3*i], montanhaIndices[3*i+1], montanhaIndices[3*i+2]);
-
 	fapp.addMesh(vertices, indices, 12, 12, vShader, fShader);
 
     fapp.addMesh(montanhaVertices, montanhaIndices, 3 * height * width, 6 * (height-1) * (width-1), vShader, fShader);
-
-	// free(montanhaIndices);
-	// free(montanhaVertices);
 }

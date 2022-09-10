@@ -61,14 +61,11 @@ namespace camera
             pitch = -89.0f;
         }
 
-        // printf("%lf", pitch);
-
         update();
     }
 
     glm::mat4 Camera::calculateViewMatrix()
     {
-        printf("%lf %lf %lf\n", position.x, position.y, position.z);
         return glm::lookAt(position, position + front, up);
     }
 

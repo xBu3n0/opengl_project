@@ -99,7 +99,6 @@ namespace shader
 
     void Shader::UseShader()
     {
-        printf("%d\n", shaderID);
         glUseProgram(shaderID);
     }
 
