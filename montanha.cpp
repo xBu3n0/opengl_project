@@ -24,9 +24,9 @@ void createMontain(app::App &fapp)
 		for(int i = 0; i < height; ++i)
 		{
 			// Isso é os dados de um ponto.
-			montanhaVertices[3*(i+width * j) + 0] = ((GLfloat) i)/((GLfloat) 5); 	// x coord
+			montanhaVertices[3*(i+width * j) + 0] = ((GLfloat) i)/((GLfloat) 10); 	// x coord
 			montanhaVertices[3*(i+width * j) + 1] =	exp(((GLfloat) perlin2d(i/5.0, j/5.0, 0.4, 1)));	// y coord
-			montanhaVertices[3*(i+width * j) + 2] = ((GLfloat) j)/((GLfloat) 5);	// z coord
+			montanhaVertices[3*(i+width * j) + 2] = ((GLfloat) j)/((GLfloat) 10);	// z coord
 		}
 	}
 
@@ -46,22 +46,6 @@ void createMontain(app::App &fapp)
 			montanhaIndices[6*(i+(width-1) * j) + 5] = i + width * (j+1) + 1;
 		}
 	}
-
-	unsigned int indices[] = {
-		0, 3, 1,
-		1, 3, 2,
-		2, 3, 0,
-		0, 1, 2
-	};
-
-	GLfloat vertices[] = {
-		-1.0f, -1.0f, 0.0f,
-		0.0f, -1.0f, 1.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f
-	};
-
-	fapp.addMesh(vertices, indices, 12, 12, vShader, fShader);
 
     fapp.addMesh(montanhaVertices, montanhaIndices, 3 * height * width, 6 * (height-1) * (width-1), vShader, fShader);
 }
