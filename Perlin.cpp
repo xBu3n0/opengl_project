@@ -1,3 +1,8 @@
+/*
+Source code:
+https://gist.github.com/nowl/828013
+*/
+
 #include "Perlin.hpp"
 
 int noise2(int x, int y)

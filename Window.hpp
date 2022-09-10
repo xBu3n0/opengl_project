@@ -11,7 +11,6 @@ namespace win
     {
         public:
             GLFWwindow *mainWindow;
-            Window();
             Window(const char* screenName, int width, int height, bool fullscreen);
 
             int initialise();

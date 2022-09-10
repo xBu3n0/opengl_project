@@ -3,23 +3,6 @@
 
 namespace win
 {
-    Window::Window()
-    {
-        screenName = "title";
-        width = 800;
-        height = 600;
-
-        for(size_t i = 0; i < 1024; i++)
-        {
-            keys[i] = 0;
-        }
-        
-        xChange = 0.0f;
-        yChange = 0.0f;
-
-        initialise();
-    }
-
     Window::Window(const char* screenName, int width, int height, bool fullscreen)
     {
         this->screenName = screenName;

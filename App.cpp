@@ -43,7 +43,7 @@ namespace app
             camera->keyControl(window->getsKeys(), deltaTime);
             camera->mouseControl(window->getXChange(), window->getYChange());
 
-            // Clear the window
+            // Limpa a janela
             glClearColor(0.1f, 0.0f, 0.0f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -57,16 +57,12 @@ namespace app
                 
                 glm::mat4 model(1.0f);
 
-                // model = glm::translate(model, glm::vec3(50.0f, 3.0f, 50.0f));
-                // model = glm::scale(model, glm::vec3(0.4f, 0.4f, 1.0f));
                 glUniformMatrix4fv(uniformModel, 1, GL_FALSE, glm::value_ptr(model));
                 glUniformMatrix4fv(uniformProjection, 1, GL_FALSE, glm::value_ptr(projection));
                 glUniformMatrix4fv(uniformView, 1, GL_FALSE, glm::value_ptr(camera->calculateViewMatrix()));
 
                 meshList[i]->RenderMesh();
             }
-
-            glUseProgram(0);
 
             window->swapBuffers();
         }

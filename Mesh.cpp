@@ -40,7 +40,7 @@ namespace mesh
     }
 
     void Mesh::RenderMesh()
-    {
+    {//Vincula os dados para fazer o desenho, depois de desenhado, desvincula eles.
     	glBindVertexArray(VAO);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, IBO);
         glDrawElements(GL_TRIANGLES, indexCount, GL_UNSIGNED_INT, 0);
@@ -51,7 +51,7 @@ namespace mesh
     }
 
     void Mesh::ClearMesh()
-    {
+    {// Descructor
     	if(IBO != 0)
     	{
     		glDeleteBuffers(1, &IBO);

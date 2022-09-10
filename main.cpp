@@ -3,7 +3,7 @@
 
 int main()
 {
-	const char* title = "Corrigindo bugs.";
+	const char* title = "Um simples terreno utilizando de Perlin Noise";
     app::App firstApp(title, 800, 600, false);
 
     createMontain(firstApp);

@@ -14,6 +14,7 @@ namespace shader
         public:
             Shader();
 
+            // Cria o `Program` para ser utilizado quando for realizado o desenho.
             void CreateFromString(const char* vertexCode, const char* fragmentCode);
             void CreateFromFiles(const char* vertexLocation, const char* fragmentLocation);
 

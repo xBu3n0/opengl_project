@@ -15,8 +15,10 @@ namespace mesh
         public:
             Mesh();
             shader::Shader *shader;
+            // Cria a mesh + shader que será utilizado para essa mesh.
             void CreateMesh(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader);
             
+            // Desenha a mesh
             void RenderMesh();
             void ClearMesh();
 

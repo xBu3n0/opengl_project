@@ -1,9 +1,8 @@
 #include "Camera.hpp"
+#include <GLFW/glfw3.h>
 
 namespace camera
 {
-    Camera::Camera() {}
-
     Camera::Camera(glm::vec3 startPosition, glm::vec3 startUp, GLfloat startYaw, GLfloat startPitch, GLfloat startMoveSpeed, GLfloat startTurnSpeed)
     {
         position = startPosition;
@@ -21,6 +20,11 @@ namespace camera
     void Camera::keyControl(bool* keys, GLfloat deltaTime)
     {
         GLfloat velocity = moveSpeed * deltaTime;
+
+        if(keys[GLFW_KEY_SPACE])
+        {// Boost de velocidade para se locomover mais rápido.
+            velocity += 2;
+        }
 
         if (keys[GLFW_KEY_W])
         {

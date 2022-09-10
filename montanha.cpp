@@ -6,6 +6,11 @@ const char* vShader = "Shaders/shader.vert";
 // Fragment Shader
 const char* fShader = "Shaders/shader.frag";
 
+/*
+	Um código simples para criar uma grade de triangulos, e utilizando de um Perlin noise
+	para gerar elevações do terreno.
+*/
+
 void createMontain(app::App &fapp)
 {
     int height = 1000;
