@@ -16,16 +16,19 @@ namespace mesh
             Mesh();
             shader::Shader *shader;
             // Cria a mesh + shader que será utilizado para essa mesh.
-            void CreateMesh(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader);
-            
+            void CreateMeshWIBO(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader);
+            void CreateMeshWOIBO(GLfloat *vertices, uint numOfVertices, const char* vShader, const char* fShader);
             // Desenha a mesh
             void RenderMesh();
+            void rMeshWIBO();
+            void rMeshWOIBO();
             void ClearMesh();
 
             ~Mesh();
 
         private:
+            bool useIBO;
             GLuint VAO, VBO, IBO;
-            GLsizei indexCount;
+            GLsizei indexCount, arraySize;
     };
 }

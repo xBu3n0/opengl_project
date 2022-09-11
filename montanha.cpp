@@ -1,10 +1,10 @@
 #include "montanha.hpp"
 
 // Vertex Shader
-const char* vShader = "Shaders/shader.vert";
+const char* vShaderMontanha = "Shaders/shader.vert";
 
 // Fragment Shader
-const char* fShader = "Shaders/shader.frag";
+const char* fShaderMontanha = "Shaders/shader.frag";
 
 /*
 	Um código simples para criar uma grade de triangulos, e utilizando de um Perlin noise
@@ -16,7 +16,7 @@ void createMontain(app::App &fapp)
     int height = 1000;
 	int width = 1000;
 	// descrevo todos os vertices da montanha
-	GLfloat *montanhaVertices = (GLfloat*) malloc(sizeof(GLfloat) * 3 * height * width); // 10 x 10
+	std::vector<GLfloat> montanhaVertices(3 * height * width); // 10 x 10
 
 	// dou a altura da montanha
 	for(int j = 0; j < width; ++j)
@@ -30,7 +30,7 @@ void createMontain(app::App &fapp)
 		}
 	}
 
-	unsigned int *montanhaIndices = (uint*) malloc(sizeof(GLfloat) * 6 * (height-1) * (width-1));
+	std::vector<uint> montanhaIndices(6 * (height-1) * (width-1));
 
 	// ordem de como será realizado os desenhos dos triangulos.
 	for(int i = 0; i < height-1; ++i)
@@ -47,5 +47,5 @@ void createMontain(app::App &fapp)
 		}
 	}
 
-    fapp.addMesh(montanhaVertices, montanhaIndices, 3 * height * width, 6 * (height-1) * (width-1), vShader, fShader);
+    fapp.addMeshWIBO(montanhaVertices.data(), montanhaIndices.data(), 3 * height * width, 6 * (height-1) * (width-1), vShaderMontanha, fShaderMontanha);
 }

@@ -15,10 +15,19 @@ namespace app
         camera = new camera::Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f, 5.0f, 0.5f);
     }
 
-    void App::addMesh(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader)
+    void App::addMeshWIBO(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader)
     {
         mesh::Mesh *obj = new mesh::Mesh();
-        obj->CreateMesh(vertices, indices, numOfVertices, numOfIndices, vShader, fShader);
+        obj->CreateMeshWIBO(vertices, indices, numOfVertices, numOfIndices, vShader, fShader);
+        meshList.push_back(obj);
+
+        return;
+    }
+
+    void App::addMeshWOIBO(GLfloat *vertices, uint numOfVertices, const char* vShader, const char* fShader)
+    {
+        mesh::Mesh *obj = new mesh::Mesh();
+        obj->CreateMeshWOIBO(vertices, numOfVertices, vShader, fShader);
         meshList.push_back(obj);
 
         return;

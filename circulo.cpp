@@ -8,9 +8,9 @@ const char* vShaderCircle = "Shaders/shader.vert";
 // Fragment Shader
 const char* fShaderCircle = "Shaders/shader.frag";
 
-void createCircle(app::App &fapp, GLfloat radius, GLfloat xpos, GLfloat ypos, GLfloat zpos, int split)
+void createCircle(app::App &fapp, GLfloat radius, glm::vec3 pos, int split)
 {
-	GLfloat *circuloVertices = (GLfloat*) malloc(sizeof(GLfloat) * 3 * (split+1) * (split+1));
+	std::vector<GLfloat> circuloVertices(3 * (split+1) * (split+1));
 
     GLfloat theta   = PI/((GLfloat) split);
     GLfloat phi     = 2 * PI/((GLfloat) split);
@@ -20,16 +20,16 @@ void createCircle(app::App &fapp, GLfloat radius, GLfloat xpos, GLfloat ypos, GL
 		for(int i = 0; i < split+1; ++i)
 		{
 			// Isso é os dados de um ponto. (Equações certas)
-			circuloVertices[3*(i+(split+1) * j) + 0] = xpos - radius * sin(theta * j) * cos(phi * i);	// x coord
-			circuloVertices[3*(i+(split+1) * j) + 1] = ypos - radius * cos(theta * j);					// y coord
-			circuloVertices[3*(i+(split+1) * j) + 2] = zpos - radius * sin(theta * j) * sin(phi * i);	// z coord
+			circuloVertices[3*(i+(split+1) * j) + 0] = pos.x - radius * sin(theta * j) * cos(phi * i);	// x coord
+			circuloVertices[3*(i+(split+1) * j) + 1] = pos.y - radius * cos(theta * j);					// y coord
+			circuloVertices[3*(i+(split+1) * j) + 2] = pos.z - radius * sin(theta * j) * sin(phi * i);	// z coord
 		}
 	}
 
-	for(int i = 0; i < (split+1)*(split+1); ++i)
-		printf("%lf %lf %lf\n", circuloVertices[3*i], circuloVertices[3*i+1], circuloVertices[3*i+2]);
+	// for(int i = 0; i < (split+1)*(split+1); ++i)
+	// 	printf("%lf %lf %lf\n", circuloVertices[3*i], circuloVertices[3*i+1], circuloVertices[3*i+2]);
 
-	unsigned int *circuloIndices = (uint*) malloc(sizeof(GLfloat) * 6 * (split) * (split));
+	std::vector<uint> circuloIndices(6 * split * split);
 
 
 	for(int j = 0; j < split; ++j)
@@ -46,7 +46,7 @@ void createCircle(app::App &fapp, GLfloat radius, GLfloat xpos, GLfloat ypos, GL
 		}
 	}
 
-    fapp.addMesh(circuloVertices, 			 circuloIndices,
+    fapp.addMeshWIBO(circuloVertices.data(),			circuloIndices.data(),
 				 3 * (split+1) * (split+1), 6 * (split) * (split),
 				 vShaderCircle, fShaderCircle);
 }
