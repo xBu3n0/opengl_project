@@ -338,9 +338,7 @@ void createMCubes(app::App &fapp, GLfloat (*f)(glm::vec3 pos),
                 grid.val[6] = f(grid.p[6]);
                 grid.p[7] = startPos + glm::vec3(0, gridstep.y, gridstep.z);
                 grid.val[7] = f(grid.p[7]);
-
-                printf("f(%lf, %lf, %lf) = %lf\n", grid.p[1].x, grid.p[1].y, grid.p[1].z, grid.val[1]);
-
+                
                 evalGrid(grid, triangles);
             }
         }
