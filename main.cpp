@@ -3,9 +3,9 @@
 
 #include <stdlib.h>
 
-GLfloat f(glm::vec3 pos)
+GLfloat sphere(glm::vec3 pos)
 {
-    return pos.x * pos.x + pos.y * pos.y + pos.z * pos.z - 25;
+    return pos.x * pos.x + pos.y * pos.y - pos.z * pos.z - 25;
 }
 
 int main()
@@ -15,7 +15,7 @@ int main()
 
     // createMontain(firstApp);
     // createCircle(firstApp, 7, glm::vec3 (0, 0, 0), 25);
-    createMCubes(firstApp, f,
+    createMCubes(firstApp, sphere,
             glm::vec3(-10, -10, -10),
             glm::vec3(10, 10, 10),
             80);

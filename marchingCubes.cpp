@@ -349,7 +349,7 @@ void createMCubes(app::App &fapp, GLfloat (*f)(glm::vec3 pos),
     // for(int i = 0; i < triangles.size(); i += 3)
     //     printf("%lf %lf %lf\n", triangles[i], triangles[i+1], triangles[i+2]);
 
-    fapp.addMeshWOIBO(triangles.data(), triangles.size(), vShaderMarch, fShaderMarch);
+    fapp.addMeshWOIBO(triangles.data(), triangles.size() * sizeof(GLfloat), vShaderMarch, fShaderMarch);
 
     return;
 }
