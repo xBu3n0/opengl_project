@@ -55,7 +55,7 @@ namespace win
         // Set the current context
         glfwMakeContextCurrent(mainWindow);
 
-        // Handle Key + Mouse Input
+        // Handle Key + Mouse Input 
         createCallbacks();
         glfwSetInputMode(mainWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 

@@ -22,7 +22,7 @@ namespace camera
         GLfloat velocity = moveSpeed * deltaTime;
 
         if(keys[GLFW_KEY_SPACE])
-        {// Boost de velocidade para se locomover mais rápido.
+        {// Boost de velocidade para se locomover mais rápido. 
             velocity += 2;
         }
 

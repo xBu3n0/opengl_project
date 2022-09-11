@@ -2,7 +2,7 @@
 
 /*
 Source das tabelas + referência:
-http://paulbourke.net/geometry/polygonise/
+http://paulbourke.net/geometry/polygonise/ 
 */
 
 #include "App.hpp"

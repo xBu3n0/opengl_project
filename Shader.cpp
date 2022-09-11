@@ -15,7 +15,7 @@ namespace shader
     }
 
     void Shader::CreateFromFiles(const char* vertexLocation, const char* fragmentLocation)
-    {
+    {// Cria com base nos arquivos que foram informados.
         std::string vertexString = ReadFile(vertexLocation);
         std::string fragmentString = ReadFile(fragmentLocation);
         const char* vertexCode = vertexString.c_str();

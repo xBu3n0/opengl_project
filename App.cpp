@@ -4,19 +4,19 @@
 namespace app
 {
     App::App()
-    {
+    {// Inicializa a aplicação sem nome.
         window = new win::Window("without title", 800, 600, false);
         camera = new camera::Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f, 5.0f, 0.5f);
     }
 
     App::App(const char* screenName, int width, int height, bool fullscreen)
-    {
+    {// Inicia a aplicação com nome, tamanho e se é fullscreen.
         window = new win::Window(screenName, width, height, fullscreen);
         camera = new camera::Camera(glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f), -90.0f, 0.0f, 5.0f, 0.5f);
     }
 
     void App::addMeshWIBO(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader)
-    {
+    {// Adiciona uma mesh ao app que utiliza de IBO
         mesh::Mesh *obj = new mesh::Mesh();
         obj->CreateMeshWIBO(vertices, indices, numOfVertices, numOfIndices, vShader, fShader);
         meshList.push_back(obj);
@@ -25,7 +25,7 @@ namespace app
     }
 
     void App::addMeshWOIBO(GLfloat *vertices, uint numOfVertices, const char* vShader, const char* fShader)
-    {
+    {// Adiciona uma mesh ao app que não utiliza de IBO
         mesh::Mesh *obj = new mesh::Mesh();
         obj->CreateMeshWOIBO(vertices, numOfVertices, vShader, fShader);
         meshList.push_back(obj);
@@ -38,7 +38,7 @@ namespace app
         GLfloat deltaTime = 0, lastTime = 0;
 
         GLuint uniformProjection = 0, uniformModel = 0, uniformView = 0;
-        glm::mat4 projection = glm::perspective(glm::radians(45.0f), ((GLfloat)window->getBufferWidth())/window->getBufferHeight(), 0.1f, 100.0f);
+        glm::mat4 projection = glm::perspective(glm::radians(45.0f), ((GLfloat)window->getBufferWidth())/window->getBufferHeight(), 0.1f, 1000.0f);
 
         while (!window->getShouldClose())
         {

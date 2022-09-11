@@ -21,7 +21,7 @@ namespace app
             // Inicializa o `window` e a `camera`
             App();
             App(const char* screenName, int width, int height, bool fullscreen);
-            // Permite ao usuário inserir dados, junto a novos shaders para serem renderizados.
+            // Permite ao usuário inserir dados, junto a novos shaders para serem renderizados. 
             void addMeshWOIBO(GLfloat *vertices, uint numOfVertices, const char* vShader, const char* fShader);
             void addMeshWIBO(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader);
             // Depois de tudo adicionado, entra no looping

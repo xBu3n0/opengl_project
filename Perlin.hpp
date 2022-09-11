@@ -1,7 +1,7 @@
 /*
 Source code:
 https://gist.github.com/nowl/828013
-*/
+*/ 
 
 static int SEED = 0;
 

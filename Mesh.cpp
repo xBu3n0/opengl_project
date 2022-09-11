@@ -60,7 +60,7 @@ namespace mesh
     }
 
     void Mesh::RenderMesh()
-    {//Vincula os dados para fazer o desenho, depois de desenhado, desvincula eles.
+    {//Vincula os dados para fazer o desenho, depois de desenhado, desvincula eles. 
     	if(useIBO == true)
             rMeshWIBO();
         else

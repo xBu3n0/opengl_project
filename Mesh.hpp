@@ -15,7 +15,7 @@ namespace mesh
         public:
             Mesh();
             shader::Shader *shader;
-            // Cria a mesh + shader que será utilizado para essa mesh.
+            // Cria a mesh + shader que será utilizado para essa mesh. 
             void CreateMeshWIBO(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader);
             void CreateMeshWOIBO(GLfloat *vertices, uint numOfVertices, const char* vShader, const char* fShader);
             // Desenha a mesh

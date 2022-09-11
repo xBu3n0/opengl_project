@@ -2,7 +2,7 @@
 #include <math.h>
 #define PI 3.1415926
 
-// Vertex Shader
+// Vertex Shader 
 const char* vShaderCircle = "Shaders/shader.vert";
 
 // Fragment Shader
