@@ -8,7 +8,7 @@ int main()
     app::App firstApp(title, 800, 600, false);
 
     // createMontain(firstApp);
-    createCircle(firstApp, 7, 5, 5, 5);
+    createCircle(firstApp, 7, 5, 5, 5, 25);
 
     firstApp.run();
 
