@@ -338,7 +338,7 @@ void createMCubes(app::App &fapp, GLfloat (*f)(glm::vec3 pos),
                 grid.val[6] = f(grid.p[6]);
                 grid.p[7] = startPos + glm::vec3(0, gridstep.y, gridstep.z);
                 grid.val[7] = f(grid.p[7]);
-                
+
                 evalGrid(grid, triangles);
             }
         }
@@ -419,5 +419,11 @@ void evalGrid(GRIDCELL grid, std::vector<GLfloat> &triangles)
 
 glm::vec3 vertexInterp(double isolevel, glm::vec3 u, glm::vec3 v, GLfloat u_val, GLfloat v_val)
 {
+    // Visual de voxel.
     return (u+v)/2.0f;
+
+    // Visual mais liso.
+    // GLfloat distance = sqrt(dot(v-u, v-u));
+    // GLfloat zero = -u_val/(v_val - u_val);
+    // return u + zero * (v-u);
 }

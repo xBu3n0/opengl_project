@@ -1,10 +1,8 @@
 #pragma once
 
 /*
-Source das tabelas:
+Source das tabelas + referência:
 http://paulbourke.net/geometry/polygonise/
-
-Código NÃO está 100% funcional ainda.
 */
 
 #include "App.hpp"
