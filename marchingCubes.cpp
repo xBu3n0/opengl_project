@@ -420,10 +420,9 @@ void evalGrid(GRIDCELL grid, std::vector<GLfloat> &triangles)
 glm::vec3 vertexInterp(double isolevel, glm::vec3 u, glm::vec3 v, GLfloat u_val, GLfloat v_val)
 {
     // Visual de voxel. 
-    return (u+v)/2.0f;
+    // return (u+v)/2.0f;
 
     // Visual mais liso.
-    // GLfloat distance = sqrt(dot(v-u, v-u));
-    // GLfloat zero = -u_val/(v_val - u_val);
-    // return u + zero * (v-u);
+    GLfloat zero = -u_val/(v_val - u_val);
+    return u + zero * (v-u);
 }

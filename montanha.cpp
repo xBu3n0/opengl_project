@@ -11,7 +11,7 @@ const char* fShaderMontanha = "Shaders/shader.frag";
 	para gerar elevações do terreno. 
 */
 
-void createMontain(app::App &fapp)
+void createMontain(app::App &fapp, GLfloat (*f)(GLfloat x, GLfloat y), glm::vec3 startPos)
 {
     int height = 1000;
 	int width = 1000;
@@ -24,9 +24,9 @@ void createMontain(app::App &fapp)
 		for(int i = 0; i < height; ++i)
 		{
 			// Isso é os dados de um ponto.
-			montanhaVertices[3*(i+width * j) + 0] = ((GLfloat) i)/((GLfloat) 10); 	// x coord
-			montanhaVertices[3*(i+width * j) + 1] =	exp(((GLfloat) perlin2d(i/5.0, j/5.0, 0.4, 1)));	// y coord
-			montanhaVertices[3*(i+width * j) + 2] = ((GLfloat) j)/((GLfloat) 10);	// z coord
+			montanhaVertices[3*(i+width * j) + 0] = startPos.x + ((GLfloat) i)/((GLfloat) 10); 	// x coord
+			montanhaVertices[3*(i+width * j) + 1] =	startPos.y + f(i, j);	// y coord
+			montanhaVertices[3*(i+width * j) + 2] = startPos.z + ((GLfloat) j)/((GLfloat) 10);	// z coord
 		}
 	}
 

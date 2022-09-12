@@ -10,6 +10,7 @@ namespace mesh
     	VBO = 0;
     	IBO = 0;
     	indexCount = 0;
+        useIBO = false;
     }
 
     void Mesh::CreateMeshWIBO(GLfloat *vertices, uint *indices, uint numOfVertices, uint numOfIndices, const char* vShader, const char* fShader)
