@@ -25,7 +25,7 @@ void createMontain(app::App &fapp, GLfloat (*f)(GLfloat x, GLfloat y), glm::vec3
 		{
 			// Isso é os dados de um ponto.
 			montanhaVertices[3*(i+width * j) + 0] = startPos.x + ((GLfloat) i)/((GLfloat) 10); 	// x coord
-			montanhaVertices[3*(i+width * j) + 1] =	startPos.y + f(i, j);	// y coord
+			montanhaVertices[3*(i+width * j) + 1] =	startPos.y + f(i/10.0, j/10.0);	// y coord
 			montanhaVertices[3*(i+width * j) + 2] = startPos.z + ((GLfloat) j)/((GLfloat) 10);	// z coord
 		}
 	}
