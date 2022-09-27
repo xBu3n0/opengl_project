@@ -13,14 +13,9 @@ GLfloat p2d(float x, float y)
 {
     float value = exp((perlin2d(x, y, 0.4, 4)+
     perlin2d(y, x, 0.4, 3)+
-    perlin2d(2*x, y, 0.6, 2)+perlin2d(3*y, 5*x, 0.2, 5))/4.0)-0.5;
+    perlin2d(2*x, y, 0.6, 2)+perlin2d(3*y, 5*x, 0.2, 5))/4.0+1.0);
 
-    if(value > 1)
-    {
-        return exp(value/2.6);
-    }
-
-    return exp(value/2.0);
+    return exp(value/2.6)/2.0;
 }
 
 int main()
